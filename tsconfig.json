@@ -1,0 +1,25 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    // absolute path to the root folder of your project implementation
+    "baseUrl": "./src/",
+    "paths": {
+      "@Store/*": ["store/*"],
+      "@Components/*": ["components/*"],
+      "@Utility/*": ["utility/*"],
+      "@Context/*": ["context/*"],
+      "@Service/*": ["services/*"],
+      "@Navigator/*": ["navigators/*"],
+      "@Validation/*": ["validationSchema/*"],
+      "@Constants/*": ["constants/*"],
+      "@Theme/*": ["themes/*"],
+      "@Api/*": ["apiServices/*"],
+      "@ReusableFunctions/*": ["reusableFunctions/*"],
+      "@Screens/*": ["screens/*"],
+      "@Asset/*": ["assets/*"],
+
+    },
+    /* Completeness */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  }
+}
