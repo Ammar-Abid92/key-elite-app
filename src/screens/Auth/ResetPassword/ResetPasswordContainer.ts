@@ -46,7 +46,13 @@ export default function useResetPassword() {
 
   function handleResetPassword(data: NewPasswordForm) {
     // resetPassword({...params, password: data.password});
-    setUserAuthentication(true, null);
+    // setUserAuthentication(true, null);
+    resetToRoutes([
+      {
+        name: NavigationRoutes.AUTH_STACK.LOGIN,
+        params: {},
+      },
+    ]);
   }
 
   return {

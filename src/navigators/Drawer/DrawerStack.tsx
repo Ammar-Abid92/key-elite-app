@@ -21,12 +21,16 @@ const DrawerConfig: DrawerNavigationOptions = {
 export default function DrawerStack() {
   return (
     <Navigator screenOptions={DrawerConfig} drawerContent={DrawerContent}>
+       <Screen
+        name={NavigationRoutes.APP_STACK.HOME}
+        getComponent={() => require('@Screens/App/Home/Home').default}
+      />
       <Screen
         name={NavigationRoutes.APP_STACK.MY_PROFILE}
         getComponent={() => require('@Screens/App/MyProfile/MyProfile').default}
       />
       <Screen
-        name={NavigationRoutes.APP_STACK.CHANGE_PASSWORD}
+        name={NavigationRoutes.APP_STACK.CHOOSE_LANGUAGE}
         getComponent={() =>
           require('@Screens/App/ChangePassword/ChangePassword').default
         }

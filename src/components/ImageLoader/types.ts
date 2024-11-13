@@ -3,13 +3,16 @@ import {
   ImageResizeMode,
   ImageSourcePropType,
   ImageStyle,
+  StyleProp,
   ViewStyle,
 } from 'react-native';
 
 export type ImageLoaderProps = {
-  style?: ImageStyle | ImageStyle[];
+  style?: StyleProp<ImageStyle>;
   source: ImageSourcePropType;
-  containerStyle?: ViewStyle | ViewStyle[];
+  containerStyle?: StyleProp<ViewStyle>;
   children?: ReactNode;
   resizeMode?: ImageResizeMode;
+  initials?: string;
+  initialsSize?: number;
 };

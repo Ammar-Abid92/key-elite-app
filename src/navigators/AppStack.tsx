@@ -19,6 +19,11 @@ export default function AppStack(props: AppStackProps) {
         getComponent={() => require('./Drawer/DrawerStack').default}
         options={{headerShown: false}}
       />
+      <Screen
+        name={NavigationRoutes.APP_STACK.CHOOSE_LANGUAGE}
+        getComponent={() => require('@Screens/App/ChooseLanguage/ChooseLanguage').default}
+        options={{headerShown: false}}
+      />
     </Navigator>
   );
 }

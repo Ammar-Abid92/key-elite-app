@@ -1,6 +1,13 @@
+import Heading from '@Components/TextComponents/Heading';
 import {Colors} from '@Theme/Colors';
 import React, {useLayoutEffect, useState} from 'react';
-import {ActivityIndicator, ImageBackground, StyleSheet} from 'react-native';
+import {
+  ActivityIndicator,
+  ImageBackground,
+  ImageSourcePropType,
+  StyleSheet,
+  View,
+} from 'react-native';
 import {ImageLoaderProps} from './types';
 
 export default function ImageLoader({
@@ -9,24 +16,31 @@ export default function ImageLoader({
   containerStyle = {},
   children,
   resizeMode = 'cover',
+  initials,
+  initialsSize = 20,
 }: ImageLoaderProps) {
   const [isLoading, setisLoading] = useState(Boolean(source));
-  const [imageSource, setImageSource] = useState(source);
+  const [imageSource, setImageSource] = useState<ImageSourcePropType>(source);
 
   function handleError() {
     setisLoading(false);
-    setImageSource(require('@Asset/icons/Anonymous/Anonymous.png'));
+    setImageSource(0);
   }
 
   useLayoutEffect(() => {
     setImageSource(source);
     // @ts-ignore
-  }, [source?.uri]);
+  }, [source?.uri, source]);
 
-  return (
+  return initials && !source ? (
+    <View style={[containerStyle, styles.initialContainer]}>
+      <Heading text={initials} size={initialsSize} />
+    </View>
+  ) : (
     <ImageBackground
       source={imageSource}
       style={[styles.container, containerStyle]}
+      onLoadStart={() => setisLoading(true)}
       onLoad={() => setisLoading(false)}
       imageStyle={[styles.image, style]}
       resizeMethod="scale"
@@ -35,7 +49,11 @@ export default function ImageLoader({
       <>
         {children}
         {isLoading && (
-          <ActivityIndicator size="small" color={Colors.CERULEAN} />
+          <ActivityIndicator
+            size="small"
+            color={Colors.GOLDEN}
+            style={styles.absolute}
+          />
         )}
       </>
     </ImageBackground>
@@ -56,4 +74,11 @@ const styles = StyleSheet.create({
   loading: {
     position: 'absolute',
   },
+  initialContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: Colors.GOLDEN,
+    borderWidth: 2,
+  },
+  absolute: {position: 'absolute'},
 });

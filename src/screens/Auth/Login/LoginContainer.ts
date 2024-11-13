@@ -16,7 +16,7 @@ export default function useLogin() {
       email: '',
       password: '',
     },
-    resolver: LoginFormValidationSchema,
+    // resolver: LoginFormValidationSchema,
   });
 
   const {mutate: loginUser, isPending} = getTokens({
@@ -28,10 +28,10 @@ export default function useLogin() {
   }
 
   const onSubmit = (data: LoginFormType) => {
-    const deviceInfo = getDeviceInfo();
+    // const deviceInfo = getDeviceInfo();
     const payload = {
       ...data,
-      ...deviceInfo,
+      // ...deviceInfo,
     };
     // loginUser(payload);
     setUserAuthentication(true, null); // Remove this line after integrating with API

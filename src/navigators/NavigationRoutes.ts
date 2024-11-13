@@ -14,12 +14,11 @@ const NavigationRoutes = {
     SUCCESS: 'Success',
   },
   APP_STACK: {
-    BOTTOM_TAB: 'BOTTOM_TAB',
     APP_DRAWER: 'APP_DRAWER',
     HOME: 'Home',
-    MY_PROFILE: 'My Profile',
-    CHANGE_PASSWORD: 'Change Password',
+    MY_PROFILE: 'Profile',
     SETTINGS: 'Settings',
+    CHOOSE_LANGUAGE: 'Choose Language'
   },
 };
 

@@ -1,8 +1,7 @@
-import InputField from '@Components/InputField/InputField';
-import MapInput from '@Components/MapInput/MapInput';
+import Heading from '@Components/TextComponents/Heading';
 import React from 'react';
-import {useForm} from 'react-hook-form';
-import {StyleSheet, Text, View} from 'react-native';
+import { useForm } from 'react-hook-form';
+import { StyleSheet, View } from 'react-native';
 
 export default function Home() {
   const {control} = useForm({
@@ -22,12 +21,10 @@ export default function Home() {
         paddingVertical: 20,
         paddingHorizontal: 10,
       }}>
-      <InputField
-        label="Location"
-        name="location"
-        control={control}
-        as={MapInput}
-        trigger="onSubmit"
+      <Heading
+        text="Home"
+        size={24}
+        style={{marginBottom: 20}}
       />
     </View>
   );
