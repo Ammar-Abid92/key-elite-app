@@ -15,10 +15,14 @@ const NavigationRoutes = {
   },
   APP_STACK: {
     APP_DRAWER: 'APP_DRAWER',
-    HOME: 'Home',
-    MY_PROFILE: 'Profile',
-    SETTINGS: 'Settings',
-    CHOOSE_LANGUAGE: 'Choose Language'
+    HOME: 'home',
+    MY_PROFILE: 'profile',
+    LANGUAGE_SETTINGS: 'languageSettings',
+    CHOOSE_LANGUAGE: 'choose_language',
+    HOUSING: 'housing',
+    MAINTENANCE_REQUEST: 'maintenance_request',
+    ARRIVAL_INSTRUCTIONS: 'arrival_instructions',
+    UPLOAD_DL_CC: 'upload_DL_CC',
   },
 };
 

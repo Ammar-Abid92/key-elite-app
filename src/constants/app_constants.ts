@@ -5,18 +5,18 @@ export const GOOGLE_API_KEY = 'add your own api key';
 
 export const DRAWER_LIST = [
   {
-    title: 'Home',
+    title: 'home',
     route: NavigationRoutes.APP_STACK.HOME,
     icon: require('@Asset/icons/Home.svg'),
   },
   {
-    title: 'Profile',
+    title: 'profile',
     route: NavigationRoutes.APP_STACK.MY_PROFILE,
     icon: require('@Asset/icons/Person.svg'),
   },
   {
-    title: 'Language Settings',
-    route: NavigationRoutes.APP_STACK.CHOOSE_LANGUAGE,
+    title: 'languageSettings',
+    route: NavigationRoutes.APP_STACK.LANGUAGE_SETTINGS,
     icon: require('@Asset/icons/World.svg'),
   },
 ];

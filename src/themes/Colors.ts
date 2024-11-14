@@ -8,7 +8,7 @@ export const Colors = {
   STEEL: '#858b9a',
   GOLDEN: '#F8A426',
   WHITE_TWO: '#f1f0f0',
-  SKY_BLUE: '#69B2D0',
+  // SKY_BLUE: '#69B2D0',
   BROWN: '#4E1E0E',
   SAND: '#FAD5AD',
 
@@ -20,6 +20,7 @@ export const Colors = {
   LIGHT_GREY: '#EFEFEF',
   DARK_GREY: '#909090',
   BLACK_TWO: '#3C3C3C',
+  SKY_BLUE: '#EEF5FF',
 };
 
 export const TOAST_COLORS = {

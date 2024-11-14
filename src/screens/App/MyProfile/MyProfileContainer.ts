@@ -1,55 +1,72 @@
-import {queryClient} from '@Api/Client';
-import {getUserInfo, updateUserProfile} from '@Api/Personal';
-import STORAGE_CONST from '@Constants/storage';
-import {UpdateUserValidationSchema} from '@Validation/index';
-import {useEffect} from 'react';
+import {BottomSheetModal} from '@gorhom/bottom-sheet';
+import React, {useCallback, useState} from 'react';
 import {useForm} from 'react-hook-form';
+import {openPicker} from 'react-native-image-crop-picker';
 import {MyProfileForm} from './type';
+import {showToast} from 'rn-animated-toast';
+import {goBack} from '@Service/navigationService';
+import {useLanguageContext} from '@Context/languageContext';
 
 export default function useMyProfile() {
-  const {data, isSuccess} = getUserInfo();
+  const [image, setImage] = useState('');
+  const {I18n} = useLanguageContext();
+
+  // const {data, isSuccess, refetch} = getUserInfo();
+  const data = {
+    email: 'johndoe@gmail.com',
+    username: 'John Doe',
+  };
 
   const {
     control,
     handleSubmit,
+    formState: {isDirty, errors, dirtyFields},
+    watch,
     reset,
-    formState: {isDirty},
   } = useForm<MyProfileForm>({
     mode: 'all',
     defaultValues: {
-      firstName: data?.firstName,
-      lastName: data?.lastName,
-      email: data?.email,
-      phoneNumber: data?.phoneNumber ?? '',
+      email: 'johndoe@gmail.com',
+      username: 'John Doe',
     },
-    resolver: UpdateUserValidationSchema,
-  });
-
-  useEffect(() => {
-    if (isSuccess) {
-      reset({
-        firstName: data?.firstName,
-        lastName: data?.lastName,
-        email: data?.email,
-        phoneNumber: data?.phoneNumber ?? '',
-      });
-    }
-  }, [isSuccess, data]);
-
-  const {mutate: updateProfile, isPending} = updateUserProfile({
-    onSuccess: () => {
-      queryClient.invalidateQueries({queryKey: [STORAGE_CONST.USER_INFO]});
-    },
+    // resolver: UpdateUserValidationSchema,
   });
 
   function onSubmit(data: MyProfileForm) {
-    updateProfile(data);
+    const payload = {
+      fullName: data.fullName.trim(),
+      username: data.username.trim(),
+      email: data.email,
+      phone: data.phone,
+      password: data.password,
+    };
+    console.log(payload);
+    showToast('Profile Updated Successfully', 'success');
+    goBack();
   }
+
+  const pickFromGallery = useCallback(async () => {
+    try {
+      const data = await openPicker({
+        mediaType: 'photo',
+        maxFiles: 1,
+        cropping: true,
+      });
+      setImage(data.path);
+    } catch (error) {
+      console.warn('error', error);
+    }
+  }, []);
 
   return {
     control,
     handleSubmit: handleSubmit(onSubmit),
     isDirty,
-    isPending,
+    isPending: false,
+    image,
+    setImage,
+    handlePressIcon: pickFromGallery,
+    initials: `${data.username.charAt(0)}${data.username.charAt(1)}`,
+    I18n,
   };
 }

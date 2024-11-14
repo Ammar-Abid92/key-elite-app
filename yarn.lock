@@ -6404,6 +6404,11 @@ react-native-gesture-handler@^2.16.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-image-crop-picker@^0.41.5:
+  version "0.41.5"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.41.5.tgz#fe1aa8f401b3d68a8a9823e95de6cd7a601c651a"
+  integrity sha512-7pnmp+VpVSqDkN1wTZfxjkhXTV9+3yhpc3ntlhy0HwRubMuHiF1Vhg4NC7dPvSkoYbOfjx1tgNsewKOKbxwrWg==
+
 react-native-keyboard-manager@^6.5.11-2:
   version "6.5.11-2"
   resolved "https://registry.yarnpkg.com/react-native-keyboard-manager/-/react-native-keyboard-manager-6.5.11-2.tgz#3d8cc8abb70ff4afe330dc83318dcbd30724fc18"

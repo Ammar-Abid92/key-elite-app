@@ -51,7 +51,7 @@ export default function ImageLoader({
         {isLoading && (
           <ActivityIndicator
             size="small"
-            color={Colors.GOLDEN}
+            color={Colors.NAVY_BLUE}
             style={styles.absolute}
           />
         )}
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   initialContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: Colors.GOLDEN,
+    borderColor: Colors.NAVY_BLUE,
     borderWidth: 2,
   },
   absolute: {position: 'absolute'},

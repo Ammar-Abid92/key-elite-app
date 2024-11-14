@@ -5,6 +5,7 @@ import {
 } from '@react-navigation/drawer';
 import NavigationRoutes from '../NavigationRoutes';
 import DrawerContent from './DrawerContent';
+import {defaultHeader} from '@Navigator/headers';
 
 const Drawer = createDrawerNavigator();
 const {Navigator, Screen} = Drawer;
@@ -21,23 +22,22 @@ const DrawerConfig: DrawerNavigationOptions = {
 export default function DrawerStack() {
   return (
     <Navigator screenOptions={DrawerConfig} drawerContent={DrawerContent}>
-       <Screen
+      <Screen
         name={NavigationRoutes.APP_STACK.HOME}
         getComponent={() => require('@Screens/App/Home/Home').default}
+        {...defaultHeader(true)}
       />
       <Screen
         name={NavigationRoutes.APP_STACK.MY_PROFILE}
         getComponent={() => require('@Screens/App/MyProfile/MyProfile').default}
+        {...defaultHeader(true)}
       />
       <Screen
-        name={NavigationRoutes.APP_STACK.CHOOSE_LANGUAGE}
+        name={NavigationRoutes.APP_STACK.LANGUAGE_SETTINGS}
         getComponent={() =>
-          require('@Screens/App/ChangePassword/ChangePassword').default
+          require('@Screens/App/ChooseLanguage/ChooseLanguage').default
         }
-      />
-      <Screen
-        name={NavigationRoutes.APP_STACK.SETTINGS}
-        getComponent={() => require('@Screens/App/Settings/Settings').default}
+        {...defaultHeader(true)}
       />
     </Navigator>
   );

@@ -2,6 +2,7 @@ import Icon from '@Components/Icon/Icon';
 import ImageLoader from '@Components/ImageLoader/ImageLoader';
 import Heading from '@Components/TextComponents/Heading';
 import {DRAWER_LIST} from '@Constants/app_constants';
+import {useLanguageContext} from '@Context/languageContext';
 import NavigationRoutes from '@Navigator/NavigationRoutes';
 import {getCurrentRouteName, navigate} from '@Service/navigationService';
 import {Colors} from '@Theme/Colors';
@@ -15,20 +16,20 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export default function DrawerContent() {
   const loggedInUser = getLoggedInUserData();
+  const {I18n} = useLanguageContext();
   // const {profile} = loggedInUser;
 
   const profile = {
     name: 'John Doe',
     firstName: 'John',
     lastName: 'Doe',
-    picture: null
-
-  }
+    picture: null,
+  };
 
   // const {data} = getUserInfo();
 
   const handlePress = (route: string) => () => {
-      navigate(route);
+    navigate(route, {fromDrawer: true});
   };
 
   const initials =
@@ -61,7 +62,6 @@ export default function DrawerContent() {
             type={FontTypes.Bold}
             color={Colors.BLACK_TWO}
           />
-          
         </View>
       </View>
       <View style={styles.line} />
@@ -75,7 +75,7 @@ export default function DrawerContent() {
             <DrawerItem
               icon={drawerIcon(item.icon)}
               key={item.title}
-              label={drawerTitle(item.title)}
+              label={drawerTitle(I18n[item.title as keyof typeof I18n])}
               onPress={handlePress(item.route)}
               focused={focused}
               style={[styles.drawerItemStyle, focused && styles.bgRed]}
@@ -84,7 +84,7 @@ export default function DrawerContent() {
         })}
       </DrawerContentScrollView>
       <Heading
-        text={`FOLO V1.0.0`} //${getVersion()}
+        text={`KeyElite V1.0.0`} //${getVersion()}
         size={14}
         color={Colors.STEEL}
         alignment="center"
@@ -109,14 +109,7 @@ const drawerTitle =
 const drawerIcon =
   (icon: any) =>
   ({focused}: {focused: boolean}) => {
-    return (
-      <Icon
-        height={24}
-        width={24}
-        source={icon}
-        fill='transparent'
-      />
-    );
+    return <Icon height={24} width={24} source={icon} fill="transparent" />;
   };
 
 const styles = StyleSheet.create({

@@ -1086,6 +1086,15 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
+  - RNImageCropPicker (0.41.5):
+    - React-Core
+    - React-RCTImage
+    - RNImageCropPicker/QBImagePickerController (= 0.41.5)
+    - TOCropViewController (~> 2.7.4)
+  - RNImageCropPicker/QBImagePickerController (0.41.5):
+    - React-Core
+    - React-RCTImage
+    - TOCropViewController (~> 2.7.4)
   - RNPermissions (4.1.5):
     - React-Core
   - RNReanimated (3.15.1):
@@ -1112,6 +1121,7 @@ PODS:
   - RNSVG (15.6.0):
     - React-Core
   - SocketRocket (0.6.1)
+  - TOCropViewController (2.7.4)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -1175,6 +1185,7 @@ DEPENDENCIES:
   - "RNCCheckbox (from `../node_modules/@react-native-community/checkbox`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -1190,6 +1201,7 @@ SPEC REPOS:
     - MMKV
     - MMKVCore
     - SocketRocket
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   boost:
@@ -1307,6 +1319,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNImageCropPicker:
+    :path: "../node_modules/react-native-image-crop-picker"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNReanimated:
@@ -1382,11 +1396,13 @@ SPEC CHECKSUMS:
   RNCCheckbox: a3ca9978cb0846b981d28da4e9914bd437403d77
   RNDeviceInfo: 4f9c7cfd6b9db1b05eb919620a001cf35b536423
   RNGestureHandler: bc2cdb2dc42facdf34992ae364b8a728e19a3686
+  RNImageCropPicker: a536bb88eade8336e1d18fdeafa77dc893fbc42e
   RNPermissions: 294531ede5a64d1528463e88fffef05675842042
   RNReanimated: fe9610fb0eebdd1fe8f38421bebcaa9afa0fe6b2
   RNScreens: b6b64d956af3715adbfe84808694ae82d3fec74f
   RNSVG: 5da7a24f31968ec74f0b091e3440080f347e279b
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
+  TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
   Yoga: d17d2cc8105eed528474683b42e2ea310e1daf61
 
 PODFILE CHECKSUM: 92f0bd8f710166ffe9c7ed9470165a68c34a7e67

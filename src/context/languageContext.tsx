@@ -14,7 +14,7 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider = ({children}: LanguageProviderProps) => {
-  const localLang = getItem('language');
+  const localLang = getItem('language') || en;
 
   const [I18n, setI18n] = useState<any>(localLang ?? en);
 

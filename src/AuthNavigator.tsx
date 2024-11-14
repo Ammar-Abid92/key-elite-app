@@ -19,14 +19,13 @@ export default function AuthNavigator() {
       ...DefaultTheme.colors,
       primary: Colors.BACKGROUND,
       background: Colors.APP_BACKGROUND,
-      
     },
   };
 
   return (
     <>
       <NavigationContainer ref={navigationRef} theme={config}>
-        {true ? (
+        {isAuth ? (
           <AppStack initialRouteName={initialRouteName} />
         ) : (
           <AuthStack />
